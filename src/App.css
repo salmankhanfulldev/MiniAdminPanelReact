@@ -1,0 +1,45 @@
+:root{--bg:#f6f7fb;--card:#fff;--accent:#2b6cb0;--muted:#6b7280}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:#111}
+
+.app-shell{display:flex;min-height:100vh}
+.nav{width:220px;background:#111827;color:#fff;padding:18px;display:flex;flex-direction:column;gap:12px}
+.nav .nav-brand{font-weight:700;font-size:18px}
+.nav .nav-links a{display:block;color:#cbd5e1;text-decoration:none;margin:6px 0}
+.nav .nav-links a.active{color:white;font-weight:600}
+.nav .nav-user{margin-top:auto;display:flex;gap:8px;align-items:center}
+.main{flex:1;padding:18px}
+
+.card{background:var(--card);padding:12px;border-radius:8px;box-shadow:0 1px 4px rgba(2,6,23,0.08)}
+.page-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.page-head input{padding:8px;border-radius:6px;border:1px solid #e5e7eb}
+.btn{background:var(--accent);color:#fff;padding:8px 12px;border:none;border-radius:6px;cursor:pointer}
+.btn.muted{background:#e5e7eb;color:#111}
+.btn.small{padding:6px 8px;font-size:13px}
+
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:8px;text-align:left;border-bottom:1px solid #eef2f7}
+.table td button{margin-right:6px}
+
+.form-row{margin-bottom:10px;display:flex;flex-direction:column}
+.form-row label{font-size:13px;margin-bottom:6px;color:var(--muted)}
+.form-row input,.form-row select{padding:8px;border-radius:6px;border:1px solid #e5e7eb}
+.form-actions{display:flex;gap:8px}
+.error{color:#b91c1c;font-size:13px}
+.center-screen{min-height:100vh;display:flex;align-items:center;justify-content:center}
+.auth-card{width:360px}
+
+.cards{display:flex;gap:12px;margin-bottom:12px}
+.card.stat{flex:1;text-align:center}
+.card.stat .big{font-size:22px;font-weight:700;margin-top:8px}
+
+.table-card{overflow:auto}
+.pagination{display:flex;gap:10px;align-items:center;margin-top:10px}
+
+/* responsive */
+@media(max-width:900px){
+  .app-shell{flex-direction:column}
+  .nav{width:100%;flex-direction:row;align-items:center}
+  .nav .nav-links{display:flex;gap:8px}
+}
