@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
-import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import Products from './pages/Products';
-import Categories from './pages/Categories';
-import Orders from './pages/Orders';
-import Nav from './components/Nav';
-import { AppContext } from './context/AppContext';
+import React, { useContext } from "react";
+import { Routes, Route, Navigate, Outlet } from "react-router-dom";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import Products from "./pages/Products";
+import Categories from "./pages/Categories";
+import Orders from "./pages/Orders";
+import Nav from "./components/Nav";
+import { AppContext } from "./context/AppContextValue";
 
 function Protected({ children }) {
   const { auth } = useContext(AppContext);

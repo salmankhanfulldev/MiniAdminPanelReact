@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { AppContext } from '../context/AppContext';
+import React, { useContext } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { AppContext } from "../context/AppContextValue";
 
 export default function Nav() {
   const { auth, logout } = useContext(AppContext);
@@ -8,7 +8,7 @@ export default function Nav() {
 
   function handleLogout() {
     logout();
-    navigate('/login');
+    navigate("/login");
   }
 
   return (
@@ -21,8 +21,10 @@ export default function Nav() {
         <NavLink to="/orders">Orders</NavLink>
       </div>
       <div className="nav-user">
-        <span>{auth.user?.name || 'Guest'}</span>
-        <button className="btn small" onClick={handleLogout}>Logout</button>
+        <span>{auth.user?.name || "Guest"}</span>
+        <button className="btn small" onClick={handleLogout}>
+          Logout
+        </button>
       </div>
     </nav>
   );

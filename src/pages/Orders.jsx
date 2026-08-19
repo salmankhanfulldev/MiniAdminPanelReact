@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { AppContext } from '../context/AppContext';
+import React, { useContext } from "react";
+import { AppContext } from "../context/AppContextValue";
 
 export default function Orders() {
   const { orders, updateOrderStatus, products } = useContext(AppContext);
@@ -10,7 +10,9 @@ export default function Orders() {
 
   return (
     <div className="page">
-      <div className="page-head"><h2>Orders</h2></div>
+      <div className="page-head">
+        <h2>Orders</h2>
+      </div>
       <div className="card table-card">
         <table className="table">
           <thead>
@@ -24,13 +26,15 @@ export default function Orders() {
             </tr>
           </thead>
           <tbody>
-            {orders.map(o => (
+            {orders.map((o) => (
               <tr key={o.id}>
                 <td>{o.id}</td>
                 <td>
-                  {o.items.map(it => (
+                  {o.items.map((it) => (
                     <div key={it.productId}>
-                      {products.find(p => p.id === it.productId)?.name || 'Unknown'} x {it.qty}
+                      {products.find((p) => p.id === it.productId)?.name ||
+                        "Unknown"}{" "}
+                      x {it.qty}
                     </div>
                   ))}
                 </td>
@@ -38,8 +42,22 @@ export default function Orders() {
                 <td>{o.status}</td>
                 <td>{new Date(o.createdAt).toLocaleString()}</td>
                 <td>
-                  {o.status !== 'Shipped' && <button className="btn small" onClick={() => mark(o.id, 'Shipped')}>Mark Shipped</button>}
-                  {o.status !== 'Cancelled' && <button className="btn small muted" onClick={() => mark(o.id, 'Cancelled')}>Cancel</button>}
+                  {o.status !== "Shipped" && (
+                    <button
+                      className="btn small"
+                      onClick={() => mark(o.id, "Shipped")}
+                    >
+                      Mark Shipped
+                    </button>
+                  )}
+                  {o.status !== "Cancelled" && (
+                    <button
+                      className="btn small muted"
+                      onClick={() => mark(o.id, "Cancelled")}
+                    >
+                      Cancel
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}
